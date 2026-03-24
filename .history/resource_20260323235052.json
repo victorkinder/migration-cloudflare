@@ -1,0 +1,7 @@
+{
+  "github_token": "YOUR_GITHUB_TOKEN",
+  "cloudflare_token": "YOUR_CLOUDFLARE_TOKEN",
+  "github_owner": "YOUR_GITHUB_OWNER",
+  "code": "YOUR_CODE",
+  "email": "your-email@example.com"
+}

@@ -1,0 +1,10 @@
+{
+  "github_token": "YOUR_GITHUB_TOKEN",
+  "cloudflare_token": "YOUR_CLOUDFLARE_TOKEN",
+  "github_owner": "YOUR_GITHUB_OWNER",
+  "code": "./cloned_repos",
+  "email": "your-email@example.com",
+  "migration_key": "YOUR_MIGRATION_KEY",
+  "migration_url": "https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net/migrateCloudflareProject",
+  "to_migrate": ["domain-com", "other-domain-com"]
+}
