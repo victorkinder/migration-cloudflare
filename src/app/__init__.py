@@ -1,3 +1,3 @@
-__all__ = ["main", "run_migration"]
+__all__ = ["main", "clone", "migrate"]
 
-from .main import main, run_migration
+from .main import clone, main, migrate

@@ -9,6 +9,18 @@ ALLOWED_EXTENSIONS = {".html", ".txt"}
 ALLOWED_FILENAMES = {"robots.txt"}
 
 
+def get_authenticated_owner(github_token: str) -> str:
+    """Returns the login (username) of the authenticated GitHub token owner."""
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {github_token}",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    response = requests.get("https://api.github.com/user", headers=headers, timeout=30)
+    response.raise_for_status()
+    return response.json()["login"]
+
+
 def list_repositories(github_token: str, owner: str) -> list[dict]:
     repos: list[dict] = []
     page = 1
