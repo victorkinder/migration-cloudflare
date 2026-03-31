@@ -49,25 +49,26 @@ pip install -e ".[dev]"
 ```bash
 pytest
 ```
+https://n8nwh.minerx.work/webhook/cloudflare-account-id {"token":""}
+https://adsx66.postman.co/workspace/adsxn8n~a8478276-6c94-47e8-8ab7-bd33a86bdfd5/request/2981627-69fe700e-a848-4f5b-a2e5-b8292740af61?tab=body
 
+api_keys.cloudflare_account_id:"" 
 
-Frontend -> Remover e Adicionar Token da Cloudflare (para salvar a accountid da cloudflare)
-Cloudflare do cliente -> Desabilitar o deploy automático
-Backend -> Adicionar a flag no backend (deploy_strategy: "cloudflare_direct")  
-Frontend  -> Relogar (para que passe a enxergar o novo fluxo)
+Frontend -> Remover e Adicionar Token da Cloudflare (para salvar a accountid da cloudflare) (ou obter do backend + postaman)
 migration-cloudflare -> Preencher dados do resource
 migration-cloudflare -> Executar clonagem  (python -m app.main clone)
 migration-cloudflare -> Verificar clonados e apagar caso algum não faça sentido
 migration-cloudflare -> Executar upload (python -m app.main migrate)
-Frontend -> criar uma presell no lado do cliente para teste final.
 
+Cloudflare do cliente -> Desabilitar o deploy automático
+Backend -> Adicionar a flag no backend (deploy_strategy: "cloudflare_direct")  
+Frontend  -> Relogar (para que passe a enxergar o novo fluxo)
+Frontend -> criar uma presell no lado do cliente para teste final.
 
 
 
 Setar a variavel de ambiente:
 
-- `firebase user [dev/prod]`
-- `firebase functions:secrets:set MIGRATION_KEY`
+- `firebase use [dev/prod]`
 
-Use o mesmo valor definido em `MIGRATION_KEY` como `migration_key` no seu `resource.json` local.
 
