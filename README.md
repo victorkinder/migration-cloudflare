@@ -72,3 +72,4 @@ Setar a variavel de ambiente:
 - `firebase use [dev/prod]`
 
 
+marcosevaristooliveira@gmail.com
