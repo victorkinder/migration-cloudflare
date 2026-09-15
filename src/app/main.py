@@ -29,11 +29,17 @@ def _resolve_owner(config: ResourceConfig) -> str:
     return owner
 
 
+def _target_directory(config: ResourceConfig) -> Path:
+    """Uma pasta por e-mail (cloned_repos/<email>/): o migrate só lê a pasta da conta
+    configurada, então sobra de outro cliente nunca entra no envio."""
+    return Path(config.code) / config.email
+
+
 def clone(config: ResourceConfig) -> None:
     """Comando 1: clona repositórios do GitHub.
     Se 'to_migrate' estiver preenchido, clona apenas os listados. Caso contrário, clona todos.
     """
-    target_directory = Path(config.code)
+    target_directory = _target_directory(config)
     owner = _resolve_owner(config)
     print("Listando repositórios do GitHub...")
     all_repositories = list_repositories(config.github_token, owner)
@@ -49,8 +55,8 @@ def clone(config: ResourceConfig) -> None:
 
 
 def migrate(config: ResourceConfig) -> None:
-    """Comando 2: envia TODOS os repositórios clonados para o backend."""
-    target_directory = Path(config.code)
+    """Comando 2: envia TODOS os repositórios clonados da pasta do e-mail para o backend."""
+    target_directory = _target_directory(config)
 
     if not target_directory.exists():
         print(f"Diretório '{target_directory}' não encontrado. Execute 'clone' primeiro.")

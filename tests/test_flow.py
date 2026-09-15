@@ -64,8 +64,8 @@ def test_migrate_processes_all_cloned_dirs(monkeypatch, tmp_path: Path) -> None:
     main_module = importlib.import_module("app.main")
     migrated = []
 
-    (tmp_path / "repo1").mkdir()
-    (tmp_path / "repo2").mkdir()
+    (tmp_path / "user@example.com" / "repo1").mkdir(parents=True)
+    (tmp_path / "user@example.com" / "repo2").mkdir(parents=True)
 
     monkeypatch.setattr(main_module, "read_project_files", lambda _: {"/index.html": "<h1>ok</h1>"})
 
@@ -85,7 +85,7 @@ def test_migrate_skips_repo_with_no_files(monkeypatch, tmp_path: Path) -> None:
     main_module = importlib.import_module("app.main")
     notify_called = {"value": False}
 
-    (tmp_path / "repo1").mkdir()
+    (tmp_path / "user@example.com" / "repo1").mkdir(parents=True)
 
     monkeypatch.setattr(main_module, "read_project_files", lambda _: {})
     monkeypatch.setattr(

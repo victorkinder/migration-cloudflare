@@ -60,7 +60,6 @@ migration-cloudflare -> Executar clonagem  (python -m app.main clone)
 migration-cloudflare -> Verificar clonados e apagar caso algum não faça sentido
 migration-cloudflare -> Executar upload (python -m app.main migrate)
 
-Cloudflare do cliente -> Desabilitar o deploy automático
 Backend -> Adicionar a flag no backend (deploy_strategy: "cloudflare_direct")  
 Frontend  -> Relogar (para que passe a enxergar o novo fluxo)
 Frontend -> criar uma presell no lado do cliente para teste final.
@@ -72,4 +71,3 @@ Setar a variavel de ambiente:
 - `firebase use [dev/prod]`
 
 
-marcosevaristooliveira@gmail.com
